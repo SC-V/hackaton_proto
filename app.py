@@ -61,7 +61,7 @@ comfort_price = 14.0
 express_price = 9.0
 
 if subscription_enabled:
-    col_lets_roll, col_result = st.columns(2)
+    col_lets_roll, col_result = st.columns([1, 2])
 
     with col_lets_roll:
         if st.button("Roll your bonus benefit!"):
@@ -75,6 +75,7 @@ if subscription_enabled:
                     sleep(1)
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
+                    st.balloons()
 
 
 col_econom, col_comfort, col_express = st.columns(3)
