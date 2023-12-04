@@ -88,7 +88,7 @@ col_econom, col_comfort, col_express = st.columns(3)
 with col_econom:
     if subscription_enabled:
         st.metric(label=r"Econom 🏎",
-                  value=f"{econom_price * (1 - subscription_discount)}/S",
+                  value=f"{round(econom_price * (1 - subscription_discount), 1)}/S",
                   delta=f"{subscription_discount * 100}% off")
     else:
         st.metric(label="Econom",
@@ -97,7 +97,7 @@ with col_econom:
 with col_comfort:
     if subscription_enabled:
         st.metric(label=r"Comfort 🏎",
-                  value=f"{comfort_price * (1 - subscription_discount)}/S",
+                  value=f"{round(comfort_price * (1 - subscription_discount), 1)}/S",
                   delta=f"{subscription_discount * 100}% off")
     else:
         st.metric(label="Comfort",
@@ -106,7 +106,7 @@ with col_comfort:
 with col_express:
     if subscription_enabled:
         st.metric(label=r"Express 🏎",
-                  value=f"{express_price * (1 - subscription_discount)}/S",
+                  value=f"{round(express_price * (1 - subscription_discount), 1)}/S",
                   delta=f"{subscription_discount * 100}% off")
     else:
         st.metric(label="Express",
