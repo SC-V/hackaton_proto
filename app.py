@@ -60,6 +60,8 @@ econom_price = 10.0
 comfort_price = 14.0
 express_price = 9.0
 
+bonus_string = ""
+
 if subscription_enabled:
     col_lets_roll, col_result = st.columns([1, 2])
 
@@ -80,6 +82,8 @@ if subscription_enabled:
                         subscription_discount = 0.15
                     if SPIN_BONUS_LIST[prize_id] == "One free ride":
                         subscription_discount = 1
+                    if SPIN_BONUS_LIST[prize_id] == "Cart of bananas":
+                        bonus_string = "🍌🍌🍌🍌🍌🍌🍌🍌"
             st.balloons()
 
 
@@ -93,6 +97,7 @@ with col_econom:
     else:
         st.metric(label="Econom",
                   value=f"{econom_price}/S")
+    st.write(bonus_string)
 
 with col_comfort:
     if subscription_enabled:
