@@ -78,6 +78,11 @@ if subscription_enabled:
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
                     if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 10 rides":
                         subscription_discount = 0.15
+                    if SPIN_BONUS_LIST[prize_id] == "One free ride":
+                        econom_price = 0
+                        comfort_price = 0
+                        express_price = 0
+                        subscription_discount = 1
             st.balloons()
 
 
