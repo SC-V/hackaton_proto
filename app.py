@@ -66,12 +66,12 @@ if subscription_enabled:
     with col_lets_roll:
         if st.button("Roll your bonus benefit!"):
             with col_result:
-                with st.status("Ready to spin!", expanded=True) as status:
-                    st.write("Spinning the wheel...")
+                with st.status("Ready to spin!", expanded=False) as status:
+                    status.update(label="Spinning the wheel...")
                     sleep(1)
-                    st.write("Getting the best bonuses...")
+                    status.update(label="Getting the best bonuses...")
                     sleep(1)
-                    st.write("You are gonna be amazed...")
+                    status.update(label="You are gonna be amazed...")
                     sleep(1)
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
