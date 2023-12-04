@@ -75,7 +75,7 @@ if subscription_enabled:
                     sleep(1)
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
-                    st.balloons()
+            st.balloons()
 
 
 col_econom, col_comfort, col_express = st.columns(3)
