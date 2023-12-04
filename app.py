@@ -8,7 +8,7 @@ SPIN_BONUS_LIST = [
     "One free ride",
     "Meshok kartoshki",
     "Nintendo Switch",
-    "Additional 5% discount for 10 rides",
+    "Additional 5% discount for 5 rides",
     "Italian pizza voucher for Pizzeria Balboa",
     "Amazon $20 gift card",
     "Amazon $10 gift card",
