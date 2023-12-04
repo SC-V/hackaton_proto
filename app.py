@@ -79,9 +79,6 @@ if subscription_enabled:
                     if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 10 rides":
                         subscription_discount = 0.15
                     if SPIN_BONUS_LIST[prize_id] == "One free ride":
-                        econom_price = 0
-                        comfort_price = 0
-                        express_price = 0
                         subscription_discount = 1
             st.balloons()
 
