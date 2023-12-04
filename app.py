@@ -84,6 +84,8 @@ if subscription_enabled:
                         subscription_discount = 1
                     if SPIN_BONUS_LIST[prize_id] == "Cart of bananas":
                         bonus_string = "🍌🍌🍌🍌🍌🍌🍌🍌"
+                    if SPIN_BONUS_LIST[prize_id] == "One way ticket to Pakistan":
+                        bonus_string = "خوش آمدید!"
             st.balloons()
 
 
