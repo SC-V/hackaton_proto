@@ -67,6 +67,7 @@ if subscription_enabled:
         if st.button("Roll your bonus benefit!"):
             with col_result:
                 with st.status("Ready to spin!", expanded=False) as status:
+                    st.write("Spin every week!")
                     status.update(label="Spinning the wheel...")
                     sleep(1)
                     status.update(label="Getting the best bonuses...")
