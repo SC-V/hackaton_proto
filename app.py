@@ -76,7 +76,7 @@ if subscription_enabled:
                     sleep(2)
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
-                    if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 10 rides":
+                    if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 5 rides":
                         subscription_discount = 0.15
                     if SPIN_BONUS_LIST[prize_id] == "One free ride":
                         subscription_discount = 1
