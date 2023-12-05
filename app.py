@@ -50,9 +50,10 @@ st.set_page_config(page_title=f"Yango Hackaton Dec 2023",
 st.markdown(f"# Yango Turbo")
 st.markdown("This is an app to showcase the **:red[Yango Turbo]** subscription for the 1st Yango Hackaton Dec 2023.")
 
-subscription_enabled = st.checkbox(label="Yango Turbo",
-                                   value=False,
-                                   help="Click to simulate the purchase of Yango Turbo")
+with st.container(border=True):
+    subscription_enabled = st.checkbox(label="Yango Turbo",
+                                       value=False,
+                                       help="Click here to enable Yango Turbo benefits")
 
 subscription_discount = 0.1
 
@@ -66,7 +67,7 @@ if subscription_enabled:
     col_lets_roll, col_result = st.columns([1, 2])
 
     with col_lets_roll:
-        if st.button("Roll your bonus benefit!"):
+        if st.button("Roll your bonus benefit!", type="primary"):
             with col_result:
                 with st.status("Ready to spin!", expanded=False) as status:
                     st.write("Spin every week!")
