@@ -8,17 +8,16 @@ SPIN_BONUS_LIST = [
     "One free ride",
     "Meshok kartoshki",
     "Nintendo Switch",
+    "Additional 3% discount for 5 rides",
     "Additional 5% discount for 5 rides",
     "Italian pizza voucher for Pizzeria Balboa",
-    "Amazon $20 gift card",
     "Amazon $10 gift card",
-    "Cart of bananas",
     "Andrey Kudryashov's unsolicited advice",
     "1 free night at Sofitel presidential suite",
     "1 free AirBnB experience ticket",
     "One way ticket to Pakistan",
-    "Jar of strawberry jam",
     "Branded Yango hoodie",
+    "Branded Yango hat",
     "2 hours of karting for your and 2 friends"
 ]
 
@@ -55,7 +54,7 @@ with st.container(border=True):
                                        value=False,
                                        help="Click here to enable Yango Turbo benefits")
 
-subscription_discount = 0.1
+subscription_discount = 0.05
 
 econom_price = 10.0
 comfort_price = 14.0
@@ -81,11 +80,11 @@ if subscription_enabled:
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
                     if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 5 rides":
-                        subscription_discount = 0.15
+                        subscription_discount = 0.1
+                    if SPIN_BONUS_LIST[prize_id] == "Additional 3% discount for 5 rides":
+                        subscription_discount = 0.08
                     if SPIN_BONUS_LIST[prize_id] == "One free ride":
                         subscription_discount = 1
-                    if SPIN_BONUS_LIST[prize_id] == "Cart of bananas":
-                        bonus_string = "🍌🍌🍌🍌🍌🍌🍌🍌"
                     if SPIN_BONUS_LIST[prize_id] == "One way ticket to Pakistan":
                         bonus_string = "خوش آمدید!"
             st.balloons()
