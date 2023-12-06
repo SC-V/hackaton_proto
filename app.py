@@ -30,9 +30,9 @@ def chat_answer(prompt: str, subscription_enabled: bool):
 
         with st.chat_message(name="Master of support",
                              avatar="🧑‍💻"):
-            st.write("I'll answer straight away!")
+            st.write("Hi, friend! Happy to see you!")
             sleep(2)
-            st.write("How may I help you?")
+            st.write("I'll check your issue straight away!")
     else:
         with st.chat_message(name="User",
                              avatar="🧑‍💻"):
@@ -40,7 +40,7 @@ def chat_answer(prompt: str, subscription_enabled: bool):
 
         with st.chat_message(name="Support bot",
                              avatar="🤖"):
-            st.write("I'll answer in 100 light years")
+            st.write("I'll answer with some ML bull$#^t, human")
 
 
 st.set_page_config(page_title=f"Yango Hackaton Dec 2023",
