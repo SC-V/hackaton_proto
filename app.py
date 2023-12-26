@@ -71,6 +71,7 @@ express_price = 9.0
 bonus_string = ""
 
 if subscription_enabled:
+    st.write("⚡️ Surge less and save with Yango Turbo!")
     col_lets_roll, col_result = st.columns([1, 2])
 
     with col_lets_roll:
