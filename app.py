@@ -5,24 +5,25 @@ from time import sleep
 
 SPIN_BONUS_LIST = [
     "Lamborgini Diablo 1990 (1:16 model)",
-    "One free ride",
-    "Additional 3% discount for 5 rides",
-    "Additional 3% discount for 5 rides",
-    "Additional 3% discount for 5 rides",
-    "Additional 5% discount for 5 rides",
-    "Additional 5% discount for 5 rides",
-    "Italian pizza voucher for Pizzeria Balboa",
-    "Amazon $10 gift card",
+    "One free ride or delivery",
+    "5% discount for comfort rides",
+    "5% discount for comfort rides",
+    "5% discount for comfort rides",
+    "5% discount for express deliveries",
+    "5% discount for express deliveries",
+    "5% discount for express deliveries",
+    "Pizza voucher for Papa Johns",
     "Andrey Kudryashov's unsolicited advice",
     "Andrey Kudryashov's unsolicited advice",
-    "1 free night at Sofitel presidential suite",
-    "1 free AirBnB experience ticket",
+    "15% discount for AirBnB experience",
     "One way ticket to Pakistan",
     "One way ticket to Pakistan",
     "Branded Yango hoodie",
     "Branded Yango hoodie",
+    "Branded Yango cup",
     "Branded Yango hat",
-    "Branded Yango hat",
+    "Free e-book at Bookmate",
+    "Free e-book at Bookmate",
     "2 hours of karting for your and 2 friends"
 ]
 
@@ -59,7 +60,9 @@ with st.container(border=True):
                                        value=False,
                                        help="Click here to enable Yango Turbo benefits")
 
-subscription_discount = 0.05
+econom_subscription_discount = 0
+comfort_subscription_discount = 0
+express_subscription_discount = 0
 
 econom_price = 10.0
 comfort_price = 14.0
@@ -85,12 +88,14 @@ if subscription_enabled:
                     sleep(2)
                     prize_id = random.randint(0, len(SPIN_BONUS_LIST) - 1)
                     status.update(label=f"Wow! You won **{SPIN_BONUS_LIST[prize_id]}**", state="complete", expanded=False)
-                    if SPIN_BONUS_LIST[prize_id] == "Additional 5% discount for 5 rides":
-                        subscription_discount = 0.1
-                    if SPIN_BONUS_LIST[prize_id] == "Additional 3% discount for 5 rides":
-                        subscription_discount = 0.08
-                    if SPIN_BONUS_LIST[prize_id] == "One free ride":
-                        subscription_discount = 1
+                    if SPIN_BONUS_LIST[prize_id] == "5% discount for comfort rides":
+                        comfort_subscription_discount = 0.05
+                    if SPIN_BONUS_LIST[prize_id] == "5% discount for express deliveries":
+                        express_subscription_discount = 0.05
+                    if SPIN_BONUS_LIST[prize_id] == "One free ride or delivery":
+                        comfort_subscription_discount = 1
+                        express_subscription_discount = 1
+                        econom_subscription_discount = 1
                     if SPIN_BONUS_LIST[prize_id] == "One way ticket to Pakistan":
                         bonus_string = "خوش آمدید!"
             st.balloons()
@@ -99,29 +104,29 @@ if subscription_enabled:
 col_econom, col_comfort, col_express = st.columns(3)
 
 with col_econom:
-    if subscription_enabled:
+    if econom_subscription_discount != 0:
         st.metric(label=r"Econom 🏎",
-                  value=f"{round(econom_price * (1 - subscription_discount), 1)}/S",
-                  delta=f"{subscription_discount * 100}% off")
+                  value=f"{round(econom_price * (1 - econom_subscription_discount), 1)}/S",
+                  delta=f"{econom_subscription_discount * 100}% off")
     else:
         st.metric(label="Econom",
                   value=f"{econom_price}/S")
     st.write(bonus_string)
 
 with col_comfort:
-    if subscription_enabled:
+    if comfort_subscription_discount != 0:
         st.metric(label=r"Comfort 🏎",
-                  value=f"{round(comfort_price * (1 - subscription_discount), 1)}/S",
-                  delta=f"{subscription_discount * 100}% off")
+                  value=f"{round(comfort_price * (1 - comfort_subscription_discount), 1)}/S",
+                  delta=f"{comfort_subscription_discount * 100}% off")
     else:
         st.metric(label="Comfort",
                   value=f"{comfort_price}/S")
 
 with col_express:
-    if subscription_enabled:
+    if express_subscription_discount != 0:
         st.metric(label=r"Express 🏎",
-                  value=f"{round(express_price * (1 - subscription_discount), 1)}/S",
-                  delta=f"{subscription_discount * 100}% off")
+                  value=f"{round(express_price * (1 - express_subscription_discount), 1)}/S",
+                  delta=f"{express_subscription_discount * 100}% off")
     else:
         st.metric(label="Express",
                   value=f"{express_price}/S")
