@@ -100,7 +100,7 @@ if subscription_enabled:
                     if SPIN_BONUS_LIST[prize_id] == "One way ticket to Pakistan":
                         bonus_string = "خوش آمدید!"
                     if SPIN_BONUS_LIST[prize_id] == "Bottle of wine from Andrey Kudryashov":
-                        bonus_string = "That's not a joke! The first hackaton judge to send a screenshot of this prize to Andrey will win a real bottle 🍾!"
+                        bonus_string = "SPECIAL PRIZE! That's not a joke! The first hackaton judge to send a screenshot of this prize to Andrey will win a real bottle 🍾!"
             st.balloons()
 
 
