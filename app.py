@@ -15,7 +15,6 @@ SPIN_BONUS_LIST = [
     "Pizza voucher for Papa Johns",
     "Andrey Kudryashov's unsolicited advice",
     "Andrey Kudryashov's unsolicited advice",
-    "15% discount for AirBnB experience",
     "One way ticket to Pakistan",
     "One way ticket to Pakistan",
     "Branded Yango hoodie",
@@ -24,7 +23,8 @@ SPIN_BONUS_LIST = [
     "Branded Yango hat",
     "Free e-book at Bookmate",
     "Free e-book at Bookmate",
-    "2 hours of karting for your and 2 friends"
+    "15% discount for AirBnB experience",
+    "Bottle of wine from Andrey Kudryashov"
 ]
 
 
@@ -99,6 +99,8 @@ if subscription_enabled:
                         econom_subscription_discount = 1
                     if SPIN_BONUS_LIST[prize_id] == "One way ticket to Pakistan":
                         bonus_string = "خوش آمدید!"
+                    if SPIN_BONUS_LIST[prize_id] == "Bottle of wine from Andrey Kudryashov":
+                        bonus_string = "That's not a joke! The first hackaton judge to send a screenshot of this prize to Andrey will win a real bottle 🍾!"
             st.balloons()
 
 
